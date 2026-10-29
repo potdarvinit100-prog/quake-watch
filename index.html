@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quake Watch — Earthquakes in the Last 24 Hours</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Quake Watch</h1>
+  <p>Every earthquake recorded worldwide in the last 24 hours, newest first. Filter by minimum magnitude to cut the noise and spot the significant ones.</p>
+</header>
+<main>
+  <div class="controls">
+    <label for="minMag">Minimum magnitude</label>
+    <select id="minMag">
+      <option value="0">All magnitudes</option>
+      <option value="2.5">2.5+</option>
+      <option value="4">4.0+</option>
+      <option value="5" selected>5.0+</option>
+      <option value="6">6.0+</option>
+    </select>
+    <button id="refresh" type="button">Refresh now</button>
+  </div>
+
+  <p class="status" id="status">Loading live data…</p>
+  <div class="error" id="error" hidden></div>
+  <p class="summary" id="summary"></p>
+  <ul class="list" id="list"></ul>
+
+  <footer>
+    <p>Data: <a href="https://earthquake.usgs.gov/earthquakes/feed/" target="_blank" rel="noopener">USGS Earthquake Hazards Program</a>, GeoJSON feed for the past day. No API key. Auto-refreshes every 5 minutes. Magnitudes and locations are USGS preliminary values and can be revised.</p>
+    <p id="sourceLine"></p>
+  </footer>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
